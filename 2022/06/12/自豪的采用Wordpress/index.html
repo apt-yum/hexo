@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          
+          修改“自豪的采用Wordpress” - null
         
     </title>
 
-    <link rel="canonical" href="https://apt-yum.github.io/hexo/hexo/archives/">
+    <link rel="canonical" href="https://apt-yum.github.io/hexo/hexo/2022/06/12/自豪的采用Wordpress/">
 
     <!-- Bootstrap Core CSS -->
 
@@ -119,13 +119,19 @@
 			
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1" style="z-index:2;">
                 
-				
-                    <div class="site-heading"  style="padding:40px">
-                        <h1>myBlogs</h1>
-                        <!--<hr class="small">-->
-                        <span class="subheading"></span>
+                    <div class="post-heading" style="padding:40px">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/hexo/tags/#Wordpress" title="Wordpress">Wordpress</a>
+                            
+                        </div>
+                        <h1>修改“自豪的采用Wordpress”</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by myBlogs on
+                            2022-06-12
+                        </span>
                     </div>
-                
                 
                 </div>
             </div>
@@ -219,103 +225,80 @@
 
 
     <!-- Main Content -->
-    <!-- Main Content -->
-<div class="container">
-    <div class="row">
-        
-<!-- NO SIDEBAR -->
-    <!-- Post Container -->
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container">
-	        
-		
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <!-- 归档列表 -->
-            
-            
+    <!-- Modify by Yu-Hsuan Yen -->
 
-             <!-- 归档列表 -->
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
 
-            
-            <div class="one-tag-list">
-                <span class="fa fa-calendar-times-o listing-seperator" id="2022">
-                    <span class="tag-text">2022</span>
-                </span>
-                <ul>
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <p>在Wordpress网页的最下方默认显示“自豪的采用Wordpress”，一般在网页中这个位置可以放一些网站备案信息，推广链接，关于本站等信息，这就需要对主题进行修改。</p>
+<span id="more"></span>
+
+<h4 id="查看文件位置"><a href="#查看文件位置" class="headerlink" title="查看文件位置"></a>查看文件位置</h4><ol>
+<li>登陆Wordpress服务站点，选择“外观”，“主题编辑器”，“主题文件”中点击“主题页脚	front.php”文件，对文件中下列代码进行修改即可。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;&lt;?php echo esc_url( __( &#x27;https://wordpress.org/&#x27;, &#x27;twentyseventeen&#x27; ) ); ?&gt;&quot; class=&quot;imprint&quot;&gt;</span><br><span class="line">	&lt;?php</span><br><span class="line">		/* translators: %s: WordPress */</span><br><span class="line">	printf( __( &#x27;Proudly powered by %s&#x27;, &#x27;twentyseventeen&#x27; ), &#x27;WordPress&#x27; );</span><br><span class="line">	?&gt;</span><br><span class="line">&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>如果没有上方显示的代码，在front.php文件中查看是否有如下代码，在“主题文件”中依次点击template-parts—&gt;footer–&gt;site-info.php，在site-info.php文件中编辑上方代码即可。</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">get_template_part</span>( <span class="string">&#x27;template-parts/footer/footer&#x27;</span>, <span class="string">&#x27;widgets&#x27;</span> );</span><br></pre></td></tr></table></figure>
+
+<p>注意：不能直接对网页中打开的site-info.php文件中编辑<br>a. 远程登陆到Wordpress站点目录编辑template-parts&#x2F;footer&#x2F;site-info.php文件；<br>b. 使用DW、PhpStrom等软件连接到Wordpress站点，编辑site-info.php文件；<br>c. 使用FileZilla工具将Wordpress站点中的site-info.php文件下载到本地进行修改，预览修改效果无误以后重新上传到Wordpress站点。上传以前还可以备份Wordpress站点中的site-info.php文件，防止修改失败。</p>
+
                 
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    06-12
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/hexo/2022/06/12/自豪的采用Wordpress/" style="color: #0085a1">
-                        <span>
-                            修改“自豪的采用Wordpress”
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    06-10
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/hexo/2022/06/10/CRM客户关系管理系统项目介绍/" style="color: #0085a1">
-                        <span>
-                            CRM客户关系管理系统
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    06-10
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/hexo/2022/06/10/hello-world/" style="color: #0085a1">
-                        <span>
-                            Hello World
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    06-09
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/hexo/2022/06/09/在码云上部署个人博客/" style="color: #0085a1">
-                        <span>
-                            在码云、Github、GitLab上部署个人博客
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/hexo/2022/06/10/CRM客户关系管理系统项目介绍/" data-toggle="tooltip" data-placement="top" title="CRM客户关系管理系统">下一篇 &rarr;</a>
+                        </li>
+                    
                 </ul>
-            </div>
-            
 
+                <br>
 
-        </div>
-    </div>
-</div>
+                <!--打赏-->
                 
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
+                <!-- require APlayer -->
+                
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+				
             </div>
-    <!-- Sidebar Container -->
+
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+                
+            <!-- Sidebar Container -->
             <div class="
                 col-lg-8 col-lg-offset-2
                 col-md-10 col-md-offset-1
@@ -327,23 +310,12 @@
                     <!-- no hr -->
                     <h5><a href="/hexo/tags/">标签云</a></h5>
                     <div class="tags">
-                        
-                            
-                            <a href="/hexo/tags/#introduce" title="introduce" rel="1">introduce</a>
-                            
-                        
-                            
-                            <a href="/hexo/tags/#javascript" title="javascript" rel="1">javascript</a>
-                            
-                        
-                            
-                            <a href="/hexo/tags/#Wordpress" title="Wordpress" rel="1">Wordpress</a>
-                            
+                       
+                          <a class="tag" href="/hexo/tags/#Wordpress" title="Wordpress">Wordpress</a>
                         
                     </div>
                 </section>
                 
-
 
                 <!-- Friends Blog -->
                 
@@ -352,14 +324,54 @@
                 <ul class="list-inline">
 
                     
-                        <li><a target="_blank" rel="noopener" href="http://www.sumoon.com">ACE theme</a></li>
+                        <li><a href="http://www.sumoon.com" target="_blank">ACE theme</a></li>
                     
                 </ul>
                 
             </div>
-        
+        </div>
     </div>
-</div>
+</article>
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
 
 
     <!-- Footer -->
@@ -474,7 +486,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://apt-yum.github.io/hexo/archives/index.html/hexo/js/jquery.tagcloud.js",function(){
+        async("https://apt-yum.github.io/hexo/2022/06/12/%E8%87%AA%E8%B1%AA%E7%9A%84%E9%87%87%E7%94%A8Wordpress/index.html/hexo/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},
