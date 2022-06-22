@@ -244,7 +244,7 @@
 <h4 id="查看文件位置"><a href="#查看文件位置" class="headerlink" title="查看文件位置"></a>查看文件位置</h4><ol>
 <li>登陆Wordpress服务站点，选择“外观”，“主题编辑器”，“主题文件”中点击“主题页脚	front.php”文件，对文件中下列代码进行修改即可。</li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;&lt;?php echo esc_url( __( &#x27;https://wordpress.org/&#x27;, &#x27;twentyseventeen&#x27; ) ); ?&gt;&quot; class=&quot;imprint&quot;&gt;</span><br><span class="line">	&lt;?php</span><br><span class="line">		/* translators: %s: WordPress */</span><br><span class="line">	printf( __( &#x27;Proudly powered by %s&#x27;, &#x27;twentyseventeen&#x27; ), &#x27;WordPress&#x27; );</span><br><span class="line">	?&gt;</span><br><span class="line">&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=<span class="string">&quot;&lt;?php echo esc_url( __( &#x27;https://wordpress.org/&#x27;, &#x27;twentyseventeen&#x27; ) ); ?&gt;&quot;</span> <span class="class"><span class="keyword">class</span>=&quot;<span class="title">imprint</span>&quot;&gt;</span></span><br><span class="line"><span class="class">	&lt;?<span class="title">php</span></span></span><br><span class="line"><span class="class">		/* <span class="title">translators</span>: %<span class="title">s</span>: <span class="title">WordPress</span> */</span></span><br><span class="line"><span class="class">	<span class="title">printf</span>( <span class="title">__</span>( &#x27;<span class="title">Proudly</span> <span class="title">powered</span> <span class="title">by</span> %<span class="title">s</span>&#x27;, &#x27;<span class="title">twentyseventeen</span>&#x27; ), &#x27;<span class="title">WordPress</span>&#x27; );</span></span><br><span class="line"><span class="class">	?&gt;</span></span><br><span class="line"><span class="class">&lt;/<span class="title">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <ol start="2">
 <li>如果没有上方显示的代码，在front.php文件中查看是否有如下代码，在“主题文件”中依次点击template-parts—&gt;footer–&gt;site-info.php，在site-info.php文件中编辑上方代码即可。</li>
@@ -258,6 +258,10 @@
                 <hr>
                 <!-- Pager -->
                 <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/hexo/2022/06/21/关于DOSBox挂载问题/" data-toggle="tooltip" data-placement="top" title="关于DOSBox挂载问题">&larr; 上一篇</a>
+                        </li>
                     
                     
                         <li class="next">
