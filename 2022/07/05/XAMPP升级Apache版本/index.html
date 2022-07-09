@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          
+          XAMPP升级Apache版本 - null
         
     </title>
 
-    <link rel="canonical" href="https://apt-yum.github.io/hexo/hexo/tags/apache/">
+    <link rel="canonical" href="https://apt-yum.github.io/hexo/hexo/2022/07/05/XAMPP升级Apache版本/">
 
     <!-- Bootstrap Core CSS -->
 
@@ -119,13 +119,21 @@
 			
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1" style="z-index:2;">
                 
-				
-                    <div class="site-heading"  style="padding:40px">
-                        <h1>myBlogs</h1>
-                        <!--<hr class="small">-->
-                        <span class="subheading"></span>
+                    <div class="post-heading" style="padding:40px">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/hexo/tags/#XAMPP" title="XAMPP">XAMPP</a>
+                            
+                              <a class="tag" href="/hexo/tags/#Apache" title="Apache">Apache</a>
+                            
+                        </div>
+                        <h1>XAMPP升级Apache版本</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by myBlogs on
+                            2022-07-05
+                        </span>
                     </div>
-                
                 
                 </div>
             </div>
@@ -219,178 +227,79 @@
 
 
     <!-- Main Content -->
-    <!-- Main Content -->
-<div class="container">
-    <div class="row">
-        
-<!-- NO SIDEBAR -->
-    <!-- Post Container -->
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container">
-	        
-		
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <!-- 归档列表 -->
-            
-            
+    <!-- Modify by Yu-Hsuan Yen -->
 
-             <!-- 归档列表 -->
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
 
-            
-            <div class="one-tag-list">
-                <span class="fa fa-calendar-times-o listing-seperator" id="2022">
-                    <span class="tag-text">2022</span>
-                </span>
-                <ul>
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <p>这种方式将保留原配置文件，所以<code>xampp/htdocs</code>等文件的地址还是保持原配置文件定义的位置，而且不用修改<code>xampp</code>配置文档内容就可以切换或者升级<code>apache</code>版本：<br>使用<code>xampp-windows-x64-7.4.14-0-VC15-installer.exe</code>安装程序</p>
+<span id="more"></span>
+
+<p>1、从官网<code>https://httpd.apache.org/</code><br><code>https://www.apachelounge.com/download/</code>下载<code>httpd-2.4.54-win64-VS16.zip </code>压缩包；</p>
+<p>2、备份重要文件<br>XAMPP安装之后，用户数据基本上涉及以下3个地方：<br>a. <code>xampp/htdocs</code>目录：这里存放apache服务器网站站点的文件系统；<br>b. <code>xampp/mysql/data</code>目录：这里是所有网站站点的数据库；<br>c. <code>xampp/apache/conf/extra/httpd-vhosts.conf</code>文件：这是虚拟主机，如果你在XAMPP里面使用了虚拟主机，需要提前备份该配置文件。</p>
+<p>3、将<code>XAMPP</code>安装目录<code>D:\xampp\apache</code>重命名为<code>apache-2.0</code>，这时在<code>XAMPP</code>控制面板中应该会报错，<code>apache</code>服务无法启动；</p>
+<p>4、将<code>httpd-2.4.54-win64-VS16.zip</code>压缩包解压到<code>XAMPP</code>安装目录<code>D:\xampp\</code>中，并重命名为<code>apache</code>;</p>
+<p>5、把<code>D:\xampp\apache-2.0</code>目录中的<code>apache_installservice</code>，<code>apache_uninstallservice</code>，<code>makecert</code>几个文件复制到<code>D:\xampp\apache</code>目录中；</p>
+<p>6、打开目录<code>D:\xampp\apache\</code><br>a. 将原<code>apache-2.0\bin\</code>目录中<code>curl-ca-bundle</code>，<code>curl</code>，<code>libssh2.dll</code>等文件复制到<code>apache\bin\</code>目录中；<br>b. 将原<code>apache-2.0\conf\</code>目录中所有文件都复制到<code>apache\conf\</code>目录中，将<code>conf</code>目录中所有文件都替换；<br>c. 将原<code>apache-2.0\modules\</code>目录中所有文件都复制到<code>apache\modules\</code>目录中，原<code>apache\modules</code>目录中没有几个文件，<code>apache-2.0\modules</code>目录中有112个文件；<br>d. 将原<code>apache-2.0\scripts\</code>目录中所有文件都复制到<code>apache\scripts\</code>目录中，<code>scripts</code>目录中有一个<code>ctl.bat</code>文件。<br>现在就可以在XAMMP控制面板中启动apache服务器</p>
+
                 
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    07-05
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/hexo/2022/07/05/XAMPP升级PHP版本/" style="color: #0085a1">
-                        <span>
-                            XAMPP升级PHP版本
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    07-05
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/hexo/2022/07/05/XAMPP升级Apache版本/" style="color: #0085a1">
-                        <span>
-                            XAMPP升级Apache版本
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    06-24
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/hexo/2022/06/24/树莓派使用Nginx反向代理webapp/" style="color: #0085a1">
-                        <span>
-                            树莓派使用Nginx反向代理webapp
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    06-23
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/hexo/2022/06/23/XAMPP升级Tomcat版本/" style="color: #0085a1">
-                        <span>
-                            XAMPP升级Tomcat版本
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    06-21
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/hexo/2022/06/21/关于DOSBox挂载问题/" style="color: #0085a1">
-                        <span>
-                            关于DOSBox挂载问题
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    06-12
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/hexo/2022/06/12/自豪的采用Wordpress/" style="color: #0085a1">
-                        <span>
-                            修改“自豪的采用Wordpress”
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    06-10
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/hexo/2022/06/10/CRM客户关系管理系统项目介绍/" style="color: #0085a1">
-                        <span>
-                            CRM客户关系管理系统
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    06-10
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/hexo/2022/06/10/hello-world/" style="color: #0085a1">
-                        <span>
-                            Hello World
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    06-09
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/hexo/2022/06/09/在码云上部署个人博客/" style="color: #0085a1">
-                        <span>
-                            在码云、Github、GitLab上部署个人博客
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/hexo/2022/07/05/XAMPP升级PHP版本/" data-toggle="tooltip" data-placement="top" title="XAMPP升级PHP版本">&larr; 上一篇</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/hexo/2022/06/24/树莓派使用Nginx反向代理webapp/" data-toggle="tooltip" data-placement="top" title="树莓派使用Nginx反向代理webapp">下一篇 &rarr;</a>
+                        </li>
+                    
                 </ul>
-            </div>
-            
 
+                <br>
 
-        </div>
-    </div>
-</div>
+                <!--打赏-->
                 
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
+                <!-- require APlayer -->
+                
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+				
             </div>
-    <!-- Sidebar Container -->
+
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+                
+            <!-- Sidebar Container -->
             <div class="
                 col-lg-8 col-lg-offset-2
                 col-md-10 col-md-offset-1
@@ -402,47 +311,14 @@
                     <!-- no hr -->
                     <h5><a href="/hexo/tags/">标签云</a></h5>
                     <div class="tags">
+                       
+                          <a class="tag" href="/hexo/tags/#XAMPP" title="XAMPP">XAMPP</a>
                         
-                            
-                            <a href="/hexo/tags/#introduce" title="introduce" rel="1">introduce</a>
-                            
-                        
-                            
-                            <a href="/hexo/tags/#XAMPP" title="XAMPP" rel="3">XAMPP</a>
-                            
-                        
-                            
-                            <a href="/hexo/tags/#Apache" title="Apache" rel="1">Apache</a>
-                            
-                        
-                            
-                            <a href="/hexo/tags/#Tomcat" title="Tomcat" rel="2">Tomcat</a>
-                            
-                        
-                            
-                            <a href="/hexo/tags/#DOSBox" title="DOSBox" rel="1">DOSBox</a>
-                            
-                        
-                            
-                            <a href="/hexo/tags/#javascript" title="javascript" rel="1">javascript</a>
-                            
-                        
-                            
-                            <a href="/hexo/tags/#nginx" title="nginx" rel="1">nginx</a>
-                            
-                        
-                            
-                            <a href="/hexo/tags/#apache" title="apache" rel="1">apache</a>
-                            
-                        
-                            
-                            <a href="/hexo/tags/#Wordpress" title="Wordpress" rel="1">Wordpress</a>
-                            
+                          <a class="tag" href="/hexo/tags/#Apache" title="Apache">Apache</a>
                         
                     </div>
                 </section>
                 
-
 
                 <!-- Friends Blog -->
                 
@@ -451,14 +327,54 @@
                 <ul class="list-inline">
 
                     
-                        <li><a target="_blank" rel="noopener" href="http://www.sumoon.com">ACE theme</a></li>
+                        <li><a href="http://www.sumoon.com" target="_blank">ACE theme</a></li>
                     
                 </ul>
                 
             </div>
-        
+        </div>
     </div>
-</div>
+</article>
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
 
 
     <!-- Footer -->
@@ -573,7 +489,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://apt-yum.github.io/hexo/tags/apache/index.html/hexo/js/jquery.tagcloud.js",function(){
+        async("https://apt-yum.github.io/hexo/2022/07/05/XAMPP%E5%8D%87%E7%BA%A7Apache%E7%89%88%E6%9C%AC/index.html/hexo/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},
