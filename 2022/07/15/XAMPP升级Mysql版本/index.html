@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          
+          XAMPP升级Mysql版本 - null
         
     </title>
 
-    <link rel="canonical" href="https://apt-yum.github.io/hexo/hexo/tags/Wordpress/">
+    <link rel="canonical" href="https://apt-yum.github.io/hexo/hexo/2022/07/15/XAMPP升级Mysql版本/">
 
     <!-- Bootstrap Core CSS -->
 
@@ -119,13 +119,21 @@
 			
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1" style="z-index:2;">
                 
-				
-                    <div class="site-heading"  style="padding:40px">
-                        <h1>myBlogs</h1>
-                        <!--<hr class="small">-->
-                        <span class="subheading"></span>
+                    <div class="post-heading" style="padding:40px">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/hexo/tags/#XAMPP" title="XAMPP">XAMPP</a>
+                            
+                              <a class="tag" href="/hexo/tags/#Mysql" title="Mysql">Mysql</a>
+                            
+                        </div>
+                        <h1>XAMPP升级Mysql版本</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by myBlogs on
+                            2022-07-15
+                        </span>
                     </div>
-                
                 
                 </div>
             </div>
@@ -219,193 +227,101 @@
 
 
     <!-- Main Content -->
-    <!-- Main Content -->
-<div class="container">
-    <div class="row">
-        
-<!-- NO SIDEBAR -->
-    <!-- Post Container -->
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container">
-	        
-		
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <!-- 归档列表 -->
-            
-            
+    <!-- Modify by Yu-Hsuan Yen -->
 
-             <!-- 归档列表 -->
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
 
-            
-            <div class="one-tag-list">
-                <span class="fa fa-calendar-times-o listing-seperator" id="2022">
-                    <span class="tag-text">2022</span>
-                </span>
-                <ul>
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <p>这种方式将删除<code>xampp</code>目录下整个<code>mysql</code>文件夹，使用<code>xampp-windows-x64-8.1.6-0-VS16-installer.exe</code>安装包，XAMPP默认数据库程序是<code>MariaDB 10.4.24</code>升级为<code>mysql-8.0.28-winx64.zip</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [(none)]&gt; use mysql;</span><br><span class="line">Database changed</span><br><span class="line">MariaDB [mysql]&gt; select version();</span><br><span class="line">+-----------------+</span><br><span class="line">| version()       |</span><br><span class="line">+-----------------+</span><br><span class="line">| 10.4.24-MariaDB |</span><br><span class="line">+-----------------+</span><br><span class="line">1 row in set (0.000 sec)</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<p>1、从官网<code>https://downloads.mysql.com/archives/community/</code>下载<code>mysql-8.0.28-winx64.zip</code>压缩包；</p>
+<p>2、备份重要文件<br>XAMPP安装之后，用户数据基本上涉及以下3个地方：<br>a. 自己手动备份（用命令行进行备份）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 备份数据库命令：</span><br><span class="line">mysqldump –user=root –password=root密码 –lock-all-tables 数据库名 &gt; 备份文件.sql</span><br><span class="line"># 恢复数据库命令：</span><br><span class="line">mysql -u root –password=root密码 数据库名 &lt; 备份文件.sql</span><br></pre></td></tr></table></figure>
+
+<p>b.<code>sqlyog</code>，<code>navicate</code>数据库图形化工具进行备份（推荐），可以手动备份或者自动备份<br><code>sqlyog</code>自动备份数据库：设置之后<code>sqlyog</code>会在自己设定的时间进行备份，会生成一个特定的<code>.sql</code> 文件，我们只要把这个文件<code>ctrl+A</code>全选，粘到<code>sqlyog</code>执行一下，数据库即可恢复原状态；<br>c. 直接使用数据库辅助软件备份；</p>
+<p>3、将<code>XAMPP</code>安装目录<code>D:\xampp\mysql</code>重命名为<code>mysql-10.4</code>，这时在<code>XAMPP</code>控制面板中应该会报错，<code>msyql</code>服务无法启动；</p>
+<p>4、将<code>mysql-8.0.28-winx64.zip</code>压缩包解压到<code>XAMPP</code>安装目录<code>D:\xampp\</code>中，并重命名为<code>mysql</code>;</p>
+<p>5、把<code>D:\xampp\mysql-10.4</code>目录中的<code>mysql_installservice.bat</code>，<code>mysql_uninstallservice.bat</code>，<code>resetroot.bat</code>几个文件复制到<code>D:\xampp\mysql</code>目录中；</p>
+<p>6、把<code>D:\xampp\mysql-10.4\bin\</code>目录中的<code>my.ini</code>文件复制到<code>D:\xampp\mysql\bin\</code>目录中；</p>
+<p>到此在XAMMP控制面板中启动mysql服务会失败，查看<code>mysql_error.log</code>日志报错如下：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[ERROR] [MY-011011] [Server] Failed to find valid data directory.</span><br><span class="line">[ERROR] [MY-010020] [Server] Data Dictionary initialization failed.</span><br><span class="line"><span class="comment"># data目录初始化出错</span></span><br></pre></td></tr></table></figure>
+
+<p>解决方案：<br>1.删除根目录下的<code>data</code>文件夹内的所有文件；<br>2.移除已错误安装的mysqld服务； </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\xampp\mysql\bin&gt;mysqld -remove MYSQL</span><br></pre></td></tr></table></figure>
+
+<p>3.在CMD的<code>bin</code>目录下执行初始化命令</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysqld --initialize-insecure</span><br><span class="line"><span class="comment"># 会发现程序在mysql的根目录下自动创建了data文件夹以及相关的文件</span></span><br><span class="line"><span class="comment"># 在XAMMP控制面板中直接点击启动即可，第4、5步是在CMD命令行窗口启动mysql可忽略</span></span><br></pre></td></tr></table></figure>
+
+<p>4.<code>bin</code>目录下执行</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqld -install</span><br></pre></td></tr></table></figure>
+
+<p>5.<code>bin</code>目录下执行mysql服务启动</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net start mysql</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ERROR] [MY-000067] [Server] unknown variable <span class="string">&#x27;key_buffer=16M&#x27;</span>.</span><br></pre></td></tr></table></figure>
+
+<p>解决方案：<br>注释掉<code>D:\xampp\mysql\bin\my.ini</code>文件中相应参数的值</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">key_buffer</span>=<span class="number">16</span>M           <span class="comment">#注释掉</span></span><br><span class="line"><span class="attr">myisam-recover</span>=BACKUP    <span class="comment">#注释掉</span></span><br></pre></td></tr></table></figure>
+
+<p>现在才可以在XAMMP控制面板中正常启动mysql服务器</p>
+
                 
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    07-15
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/hexo/2022/07/15/XAMPP升级Mysql版本/" style="color: #0085a1">
-                        <span>
-                            XAMPP升级Mysql版本
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    07-05
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/hexo/2022/07/05/XAMPP升级PHP版本/" style="color: #0085a1">
-                        <span>
-                            XAMPP升级PHP版本
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    07-05
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/hexo/2022/07/05/XAMPP升级Apache版本/" style="color: #0085a1">
-                        <span>
-                            XAMPP升级Apache版本
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    06-24
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/hexo/2022/06/24/树莓派使用Nginx反向代理webapp/" style="color: #0085a1">
-                        <span>
-                            树莓派使用Nginx反向代理webapp
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    06-23
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/hexo/2022/06/23/XAMPP升级Tomcat版本/" style="color: #0085a1">
-                        <span>
-                            XAMPP升级Tomcat版本
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    06-21
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/hexo/2022/06/21/关于DOSBox挂载问题/" style="color: #0085a1">
-                        <span>
-                            关于DOSBox挂载问题
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    06-12
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/hexo/2022/06/12/自豪的采用Wordpress/" style="color: #0085a1">
-                        <span>
-                            修改“自豪的采用Wordpress”
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    06-10
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/hexo/2022/06/10/CRM客户关系管理系统项目介绍/" style="color: #0085a1">
-                        <span>
-                            CRM客户关系管理系统
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    06-10
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/hexo/2022/06/10/hello-world/" style="color: #0085a1">
-                        <span>
-                            Hello World
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    06-09
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/hexo/2022/06/09/在码云上部署个人博客/" style="color: #0085a1">
-                        <span>
-                            在码云、Github、GitLab上部署个人博客
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/hexo/2022/07/05/XAMPP升级PHP版本/" data-toggle="tooltip" data-placement="top" title="XAMPP升级PHP版本">下一篇 &rarr;</a>
+                        </li>
+                    
                 </ul>
-            </div>
-            
 
+                <br>
 
-        </div>
-    </div>
-</div>
+                <!--打赏-->
                 
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
+                <!-- require APlayer -->
+                
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+				
             </div>
-    <!-- Sidebar Container -->
+
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+                
+            <!-- Sidebar Container -->
             <div class="
                 col-lg-8 col-lg-offset-2
                 col-md-10 col-md-offset-1
@@ -417,51 +333,14 @@
                     <!-- no hr -->
                     <h5><a href="/hexo/tags/">标签云</a></h5>
                     <div class="tags">
+                       
+                          <a class="tag" href="/hexo/tags/#XAMPP" title="XAMPP">XAMPP</a>
                         
-                            
-                            <a href="/hexo/tags/#introduce" title="introduce" rel="1">introduce</a>
-                            
-                        
-                            
-                            <a href="/hexo/tags/#XAMPP" title="XAMPP" rel="4">XAMPP</a>
-                            
-                        
-                            
-                            <a href="/hexo/tags/#Mysql" title="Mysql" rel="1">Mysql</a>
-                            
-                        
-                            
-                            <a href="/hexo/tags/#Tomcat" title="Tomcat" rel="2">Tomcat</a>
-                            
-                        
-                            
-                            <a href="/hexo/tags/#DOSBox" title="DOSBox" rel="1">DOSBox</a>
-                            
-                        
-                            
-                            <a href="/hexo/tags/#javascript" title="javascript" rel="1">javascript</a>
-                            
-                        
-                            
-                            <a href="/hexo/tags/#Apache" title="Apache" rel="1">Apache</a>
-                            
-                        
-                            
-                            <a href="/hexo/tags/#nginx" title="nginx" rel="1">nginx</a>
-                            
-                        
-                            
-                            <a href="/hexo/tags/#apache" title="apache" rel="1">apache</a>
-                            
-                        
-                            
-                            <a href="/hexo/tags/#Wordpress" title="Wordpress" rel="1">Wordpress</a>
-                            
+                          <a class="tag" href="/hexo/tags/#Mysql" title="Mysql">Mysql</a>
                         
                     </div>
                 </section>
                 
-
 
                 <!-- Friends Blog -->
                 
@@ -470,14 +349,54 @@
                 <ul class="list-inline">
 
                     
-                        <li><a target="_blank" rel="noopener" href="http://www.sumoon.com">ACE theme</a></li>
+                        <li><a href="http://www.sumoon.com" target="_blank">ACE theme</a></li>
                     
                 </ul>
                 
             </div>
-        
+        </div>
     </div>
-</div>
+</article>
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
 
 
     <!-- Footer -->
@@ -592,7 +511,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://apt-yum.github.io/hexo/tags/Wordpress/index.html/hexo/js/jquery.tagcloud.js",function(){
+        async("https://apt-yum.github.io/hexo/2022/07/15/XAMPP%E5%8D%87%E7%BA%A7Mysql%E7%89%88%E6%9C%AC/index.html/hexo/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},
